@@ -1,0 +1,9 @@
+.settings
+.classpath
+.project
+.gradle/
+build/
+gradle/
+gradlew*
+*log
+*~
