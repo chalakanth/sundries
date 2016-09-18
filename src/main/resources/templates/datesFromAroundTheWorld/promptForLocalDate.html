@@ -1,0 +1,41 @@
+<html
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/default"
+>
+
+<head>
+	<title>Dates From Around The World</title>
+</head>
+
+<body class="container">
+	<div class ="row light-green lighten-4" layout:fragment="content">
+	
+		<form th:action="@{/datesFromAroundTheWorld/translateDate}" 
+			method="post" th:object="${dateTranslationRequest}" 
+			class ="col s12">
+		
+			<div class="row">			
+				<p class="blue-text text-darken-2 col s4">Enter Local Date</p>
+				<input class="input-field col s4" id="localDate" type="text" 
+							th:field="${dateTranslationRequest.localDate}" th:placeholder="${dateFormat}" />			
+			</div>
+			
+				<div class="row">
+					<p class="blue-text text-darken-2 col s4">Choose country whose date you want</p>
+					<select class="browser-default col s4" id="toLocale" th:field="${dateTranslationRequest.toLocale}">
+						<option th:each="aLocale: ${allLocales}" th:text="${aLocale.displayName}" th:value="${aLocale.hiddenValue}">Display of Locale</option>					
+					</select>
+				</div>
+				
+				<div class ="col s12">
+					<button class =" btn waves-effect waves-light" name="translate" type="submit">Translate
+						 <i class ="mdi-content-send right"> </i>
+					</button>			
+				</div>
+													
+		</form>
+	</div>
+</body>
+
+</html>

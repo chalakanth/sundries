@@ -1,0 +1,32 @@
+<html 
+	xmlns:th ="http://www.thymeleaf.org"
+	xmlns:layout ="http://www.ultraq.net.nz/thymeleaf/layout" 
+	layout:decorator ="layout/default">
+
+	<head lang ="en"> 
+		<title> My Expense Tracker - Start</title> 
+	</head>
+	
+	<body>
+		<div layout:fragment="content"  class="row">
+
+			<h4 class =" indigo-text center" > Please enter a search term </h4>
+
+			<form action ="/result" method ="get" class ="col s12"> 
+				<div class ="row center" > 
+					<div class ="input-field col s6 offset-s3" > 
+						<i class ="mdi-action-search prefix"> </i> 
+						<input id ="searchArg" name ="searchArg" type ="text" class ="validate"/> 
+						<label for ="searchArg">Search</label> 
+					</div> 
+				</div > 
+			</form >
+
+		</div>
+	
+	</body>
+	
+	
+	
+	
+</html>
