@@ -11,20 +11,31 @@
 <body class="container">
 	<div class ="row amber lighten-4" layout:fragment="content">
 	
+		<div class="col s12">
 		<form th:action="@{/datesFromAroundTheWorld/translateDate}" 
 			method="post" th:object="${dateTranslationRequest}" 
 			class ="col s12">
 		
 			<div class="row">	
 				<div class="input-field col s4" >
-					<input id="localDate" type="text" 
-							th:field="${dateTranslationRequest.localDate}" th:placeholder="${dateFormat}" />			
+					<input
+						id="localDate" 
+						type="text" 
+						th:field="${dateTranslationRequest.localDate}" 
+						th:placeholder="${dateFormat}" />			
+					
 					<label for="localDate">Enter Local Date</label>
 				</div>		
 
 				<div class="input-field col s4" >
 					<select class="browser-defaut" id="toLocale" th:field="${dateTranslationRequest.toLocale}">
-						<option th:each="aLocale: ${allLocales}" th:text="${aLocale.displayName}" th:value="${aLocale.hiddenValue}">Display of Locale</option>					
+						<option 
+							th:each="aLocale: ${allLocales}" 
+							th:text="${aLocale.displayName}" 
+							th:value="${aLocale.hiddenValue}" 
+							th:selected="${aLocale.hiddenValue eq dateTranslationRequest.toLocale}">
+							Display of Locale
+						</option>					
 					</select>
 
 					<label>Choose country whose date you want</label>
@@ -42,6 +53,37 @@
 			</div>
 													
 		</form>
+		
+		</div>
+		
+		<div class="col s12 green lighten-2" th:if="${translatedDate}">
+		
+			<div class="row">
+				<div class="col s12" >
+					<h4 th:text="|${translatedDate.incoming} translated to this:|">What did we get?</h4>
+				</div>
+
+				<div class="col s4 offset-s2">
+					<table>
+						<thead>
+							<tr>
+								<th>Format Style</th>
+								<th>The Date</th>
+							</tr>					
+						</thead>
+					
+						<tbody>
+							<tr th:each="translation: ${translatedDate.translations}">
+								<td th:text="${translation.key}">Format Style</td>
+								<td th:text="${translation.value}">The Date</td>
+							</tr>					
+						</tbody>				
+					</table>			
+				</div>		
+			</div>
+		
+		</div>
+	
 	</div>
 </body>
 
