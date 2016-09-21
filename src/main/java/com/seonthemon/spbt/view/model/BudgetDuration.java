@@ -1,18 +1,18 @@
 package com.seonthemon.spbt.view.model;
 
-import java.time.LocalTime;
+import java.util.Date;
 
 public class BudgetDuration {
 
-	private LocalTime start;
+	private Date start;
 	
-	private LocalTime end;
+	private Date end;
 
-	public LocalTime getStart() {
+	public Date getStart() {
 		return start;
 	}
 
-	public LocalTime getEnd() {
+	public Date getEnd() {
 		return end;
 	}
 	

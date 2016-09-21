@@ -1,6 +1,6 @@
 package com.seonthemon.spbt.view.config;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
@@ -14,7 +14,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
 		
-		registry.addFormatterForFieldType(LocalDate.class, new USLocalDateConverter());
+		registry.addFormatterForFieldType(Date.class, new USLocalDateConverter());
 		
 	}
 

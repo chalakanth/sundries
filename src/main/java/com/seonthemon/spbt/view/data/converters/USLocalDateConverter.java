@@ -1,26 +1,26 @@
 package com.seonthemon.spbt.view.data.converters;
 
 import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import org.springframework.format.Formatter;
 
-public class USLocalDateConverter implements Formatter<LocalDate> {
+public class USLocalDateConverter implements Formatter<Date> {
 
 	public static final String US_PATTERN = "MM/dd/yyyy"; 
 	public static final String NORMAL_PATTERN = "dd/MM/yyyy";
 
 	
 	@Override
-	public String print(LocalDate object, Locale locale) {
-		return DateTimeFormatter.ofPattern(getPattern(locale)).format(object);
+	public String print(Date object, Locale locale) {		
+		return new SimpleDateFormat(getPattern(locale), locale).format(object);
 	}
 
 	@Override
-	public LocalDate parse(String text, Locale locale) throws ParseException {
-		return LocalDate.parse(text, DateTimeFormatter.ofPattern(getPattern(locale)));
+	public Date parse(String text, Locale locale) throws ParseException {		
+		return new SimpleDateFormat(getPattern(locale), locale).parse(text);
 	}
 	
 	

@@ -1,18 +1,18 @@
 package com.seonthemon.spbt.view.model.datetranslator;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class DateTranslationRequest {
 
-	private LocalDate localDate;
+	private Date localDate;
 	
 	private String toLocale;
 
-	public LocalDate getLocalDate() {
+	public Date getLocalDate() {
 		return localDate;
 	}
 
-	public void setLocalDate(LocalDate localDate) {
+	public void setLocalDate(Date localDate) {
 		this.localDate = localDate;
 	}
 

@@ -1,12 +1,12 @@
 package com.seonthemon.spbt.view.model.datetranslator;
 
-import java.time.LocalDate;
-import java.time.format.FormatStyle;
 import java.util.Map;
+
+import com.seonthemon.spbt.view.model.BetterDateFormat;
 
 public class TranslatedDate {
 
-	public TranslatedDate(LocalDate incoming, Map<FormatStyle, String> translations) {
+	public TranslatedDate(String incoming, Map<BetterDateFormat, String> translations) {
 		super();
 		this.incoming = incoming;
 		this.translations = translations;
@@ -16,15 +16,15 @@ public class TranslatedDate {
 		super();
 	}
 
-	private LocalDate incoming;
+	private String incoming;
 	
-	private Map<FormatStyle, String> translations;
+	private Map<BetterDateFormat, String> translations;
 
-	public LocalDate getIncoming() {
+	public String getIncoming() {
 		return incoming;
 	}
 
-	public Map<FormatStyle, String> getTranslations() {
+	public Map<BetterDateFormat, String> getTranslations() {
 		return translations;
 	}
 }

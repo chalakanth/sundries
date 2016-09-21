@@ -21,7 +21,7 @@ public class UiBudgetManager extends Instrumented {
 		
 	}
 
-	public List<ExpenseCategory> findExpenseCategories(String searchArg) {
+	public List<ExpenseCategory> findExpenseCategories(final String searchArg) {
 		log.debug("> findExpenseCategories");
 		log.debug("Search Arg: " + searchArg);
 
